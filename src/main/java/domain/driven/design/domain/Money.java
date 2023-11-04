@@ -1,9 +1,20 @@
 package domain.driven.design.domain;
 
-public class Money {
-    int sum;
+import lombok.Getter;
 
-    public Money(int sum) {
-        this.sum = sum;
+@Getter
+public class Money {
+    private int value;
+
+    public Money(int value) {
+        this.value = value;
+    }
+
+    public Money add(Money money) {
+        return new Money(this.value + money.value);
+    }
+
+    public Money multiply(int multiplier) {
+        return new Money(this.value * multiplier);
     }
 }
