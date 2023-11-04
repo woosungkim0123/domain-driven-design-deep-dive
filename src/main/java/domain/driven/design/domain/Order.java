@@ -1,8 +1,14 @@
 package domain.driven.design.domain;
 
+import lombok.Getter;
+
 import java.util.List;
 
+@Getter
 public class Order {
+    private OrderNo number;
+
+    private Orderer orderer;
 
     /**
      * 최소 하나 이상의 OrderLine이 있어야함
@@ -16,11 +22,11 @@ public class Order {
     /**
      * 주문시 주문라인들과 배송지 정보를 지정해야한다.
      */
-    public Order(List<OrderLine> orderLines, ShippingInfo shippingInfo) {
+    public Order(Orderer orderer, List<OrderLine> orderLines, ShippingInfo shippingInfo, OrderState state) {
+        setOrderer(orderer);
         setOrderLines(orderLines);
         setShippingInfo(shippingInfo);
-        this.orderLines = orderLines;
-        this.shippingInfo = shippingInfo;
+        this.state = state;
     }
 
     public void changeShippingInfo(ShippingInfo newShippingInfo) {
@@ -31,6 +37,13 @@ public class Order {
     public void cancel() {
         validateOrderChangeability();
         this.state = OrderState.CANCELED;
+    }
+
+    private void setOrderer(Orderer orderer) {
+        if (orderer == null) {
+            throw new IllegalArgumentException("주문자 정보가 없음");
+        }
+        this.orderer = orderer;
     }
 
     private void validateOrderChangeability() {
@@ -59,7 +72,25 @@ public class Order {
     }
 
     private void calculateTotalAmounts() {
-        int totalSum = orderLines.stream().mapToInt(OrderLine::getAmounts).sum();
+        int totalSum = orderLines.stream().mapToInt(orderLine -> orderLine.getAmounts().getValue()).sum();
         this.totalAmounts = new Money(totalSum);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (obj.getClass() != Order.class) return false;
+        Order order = (Order) obj;
+        if (this.number == null) return false;
+        return this.number.equals(order.number);
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result * ((number == null) ? 0 : number.hashCode());
+        return result;
     }
 }
