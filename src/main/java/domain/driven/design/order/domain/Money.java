@@ -1,4 +1,4 @@
-package domain.driven.design.domain;
+package domain.driven.design.order.domain;
 
 import lombok.Getter;
 
