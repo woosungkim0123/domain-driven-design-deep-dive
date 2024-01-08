@@ -25,6 +25,6 @@ public class RegisterMembershipController {
                 .isCorp(request.isCorp())
                 .build();
 
-        registerMembershipUseCase.registerMembership(command);
+        registerMembershipUseCase.registerMembership(command); // TODO 응답 처리 해야함
     }
 }
