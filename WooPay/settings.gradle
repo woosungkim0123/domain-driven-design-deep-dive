@@ -1,0 +1,3 @@
+rootProject.name = 'WooPay'
+include 'membership'
+
