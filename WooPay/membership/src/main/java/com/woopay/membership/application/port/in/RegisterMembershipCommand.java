@@ -11,7 +11,6 @@ import lombok.Getter;
 
 
 @Getter
-@Builder
 public class RegisterMembershipCommand extends SelfValidating<RegisterMembershipCommand> {
 
     @NotNull
@@ -31,6 +30,7 @@ public class RegisterMembershipCommand extends SelfValidating<RegisterMembership
     @NotNull
     private final boolean isCorp;
 
+    @Builder
     public RegisterMembershipCommand(String name, String email, String address, boolean isValid, boolean isCorp) {
         this.name = name;
         this.email = email;
