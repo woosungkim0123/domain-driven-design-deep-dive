@@ -3,20 +3,21 @@ package com.woopay.membership.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@Getter
 @AllArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class Membership {
 
-    @Getter private final String membershipId;
+    private final String membershipId;
 
-    @Getter private final String name;
+    private final String name;
 
-    @Getter private final String email;
+    private final String email;
 
-    @Getter private final String address;
+    private final String address;
 
-    @Getter private final boolean isValid;
+    private final boolean isValid;
 
-    @Getter private final boolean isCorp;
+    private final boolean isCorp;
 
     public static Membership generateMembership(MembershipId membershipId, MembershipName membershipName, MembershipEmail membershipEmail, MembershipAddress membershipAddress, MembershipIsValid membershipIsValid, MembershipIsCorp membershipIsCorp) {
         return new Membership(membershipId.membershipId, membershipName.membershipName, membershipEmail.membershipEmail, membershipAddress.membershipAddress, membershipIsValid.membershipIsValid, membershipIsCorp.membershipIsCorp);

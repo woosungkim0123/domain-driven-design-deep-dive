@@ -1,5 +1,6 @@
 package com.woopay.membership.adapter.out.persistence;
 
+import com.woopay.membership.application.port.out.FindMembershipPort;
 import com.woopay.membership.application.port.out.RegisterMembershipPort;
 import com.woopay.membership.common.PersistenceAdapter;
 import com.woopay.membership.domain.Membership;
@@ -7,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @PersistenceAdapter
-public class MembershipPersistenceAdapter implements RegisterMembershipPort {
+public class MembershipPersistenceAdapter implements RegisterMembershipPort, FindMembershipPort {
 
     private final MembershipJpaRepository membershipRepository;
 
@@ -22,5 +23,10 @@ public class MembershipPersistenceAdapter implements RegisterMembershipPort {
                         membershipIsCorp.membershipIsCorp()
                 )
         );
+    }
+
+    @Override
+    public MembershipJpaEntity findMembership(Membership.MembershipId membershipId) {
+        return null;
     }
 }
