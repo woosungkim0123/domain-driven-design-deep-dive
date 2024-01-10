@@ -7,20 +7,20 @@ import lombok.Getter;
 @AllArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class Membership {
 
-    private final String membershipId;
+    private final MembershipId membershipId;
 
-    private final String name;
+    private final MembershipName name;
 
-    private final String email;
+    private final MembershipEmail email;
 
-    private final String address;
+    private final MembershipAddress address;
 
-    private final boolean isValid;
+    private final MembershipIsValid isValid;
 
-    private final boolean isCorp;
+    private final MembershipIsCorp isCorp;
 
     public static Membership generateMembership(MembershipId membershipId, MembershipName membershipName, MembershipEmail membershipEmail, MembershipAddress membershipAddress, MembershipIsValid membershipIsValid, MembershipIsCorp membershipIsCorp) {
-        return new Membership(membershipId.membershipId, membershipName.membershipName, membershipEmail.membershipEmail, membershipAddress.membershipAddress, membershipIsValid.membershipIsValid, membershipIsCorp.membershipIsCorp);
+        return new Membership(membershipId, membershipName, membershipEmail, membershipAddress, membershipIsValid, membershipIsCorp);
     }
 
     public record MembershipId(String membershipId) {}

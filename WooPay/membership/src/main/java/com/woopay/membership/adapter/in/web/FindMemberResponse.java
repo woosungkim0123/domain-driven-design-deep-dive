@@ -16,11 +16,11 @@ public class FindMemberResponse {
 
     public static FindMemberResponse from(Membership membership) {
         return FindMemberResponse.builder()
-                .membershipId(membership.getMembershipId())
-                .name(membership.getName())
-                .email(membership.getEmail())
-                .address(membership.getAddress())
-                .isCorp(membership.isCorp())
+                .membershipId(membership.getMembershipId().membershipId())
+                .name(membership.getName().membershipName())
+                .email(membership.getEmail().membershipEmail())
+                .address(membership.getAddress().membershipAddress())
+                .isCorp(membership.getIsCorp().membershipIsCorp())
                 .build();
     }
 }
