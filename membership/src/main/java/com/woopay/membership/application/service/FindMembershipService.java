@@ -18,6 +18,9 @@ public class FindMembershipService implements FindMembershipUseCase {
 
     @Override
     public Membership findMembership(FindMembershipCommand command) {
-        return findMembershipPort.findMembership(new Membership.MembershipId(command.getMembershipId())).toDomain();
+
+        return findMembershipPort.findMembership(new Membership.MembershipId(command.getMembershipId()))
+                .orElseThrow(() -> new RuntimeException("Membership not found")) // 사용자 정의 예외로 변경하는 것이 좋음
+                .toDomain();
     }
 }
