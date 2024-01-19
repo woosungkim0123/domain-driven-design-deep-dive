@@ -27,6 +27,10 @@ dependencies {
     // h2
     runtimeOnly 'com.h2database:h2'
 
+    /**
+     * Swagger
+     * http://localhost:8080/swagger-ui/index.html
+     */
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 
 
