@@ -64,3 +64,38 @@ user.save();
 
 ![애그리거트 패턴](../../image/aggregate_pattern.png)
 
+### Value Object
+
+**개념**
+
+- 도메인 표현: DDD에서 VO는 단순한 데이터 전송 객체(DTO)가 아니라, 도메인을 표현하는 중요한 요소입니다. (DTO는 프레젠테이션 계층과 도메인 계층에서 사용되는 구조체 개념입니다.)
+- 완전한 개념 표현: VO는 개념적으로 완전한 하나의 개념을 표현하는 데 사용됩니다. 예를 들어, 주소, 이름, 이메일 주소 등은 모두 VO로 표현될 수 있습니다.
+- 식별자 부재: VO는 고유한 식별자를 가지지 않습니다. 그들의 정체성은 그들의 속성에 의해 결정됩니다.
+- 불변성: VO는 불변성(Immutable)을 가지며, 변경이 필요하다면 새로운 객체를 생성합니다.
+
+**VO의 장점**
+
+- 안전성: VO를 사용하면 객체 내에서 유효성 검사를 수행할 수 있어 더 안전한 객체를 만들 수 있습니다.
+- 도메인 표현의 명확성: VO를 사용하면 도메인의 의미를 보다 명확하게 표현할 수 있습니다.
+- 유비쿼터스 언어 사용: VO를 사용함으로써 도메인 전문가와 개발자 간의 의사소통이 원활해집니다.
+
+```java
+// VO를 사용하지 않은 예시 - 원시 타입 사용
+class Person {
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String country;
+};
+
+// VO를 사용한 예시
+class Person {
+    private PersonalId id;
+    private Name name;
+    private EmailAddress email;
+    private CountryCode country;
+};
+```
+
+VO를 사용하면 도메인의 개념을 더 명확하게 표현할 수 있으며, 유효성 검사를 통해 더 안전한 객체를 만들 수 있습니다. 이러한 접근은 도메인 중심 설계에서 매우 중요한 부분입니다.
