@@ -48,4 +48,13 @@ public class MembershipJpaEntity {
                 new Membership.MembershipIsCorp(isCorp)
         );
     }
+
+    public MembershipJpaEntity changeMembership(String name, String email, String address, boolean isValid, boolean isCorp) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.isValid = isValid;
+        this.isCorp = isCorp;
+        return this;
+    }
 }
