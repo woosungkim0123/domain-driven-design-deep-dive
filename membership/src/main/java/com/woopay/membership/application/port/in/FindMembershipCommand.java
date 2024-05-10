@@ -1,6 +1,6 @@
 package com.woopay.membership.application.port.in;
 
-import com.woopay.membership.common.SelfValidating;
+import com.woopay.common.SelfValidating;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;

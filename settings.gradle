@@ -1,3 +1,6 @@
 rootProject.name = 'msa-deep-dive'
+
+include 'common'
 include 'membership'
+
 

@@ -1,4 +1,5 @@
-package com.woopay.membership.common;
+package com.woopay.common;
+
 
 import jakarta.validation.*;
 

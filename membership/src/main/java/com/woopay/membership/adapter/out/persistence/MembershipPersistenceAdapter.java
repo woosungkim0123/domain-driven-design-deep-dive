@@ -1,9 +1,9 @@
 package com.woopay.membership.adapter.out.persistence;
 
+import com.woopay.common.PersistenceAdapter;
 import com.woopay.membership.application.port.out.FindMembershipPort;
 import com.woopay.membership.application.port.out.ModifyMembershipPort;
 import com.woopay.membership.application.port.out.RegisterMembershipPort;
-import com.woopay.membership.common.PersistenceAdapter;
 import com.woopay.membership.domain.Membership;
 import lombok.RequiredArgsConstructor;
 

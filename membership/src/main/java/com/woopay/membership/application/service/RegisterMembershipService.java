@@ -1,10 +1,10 @@
 package com.woopay.membership.application.service;
 
+import com.woopay.common.UseCase;
 import com.woopay.membership.adapter.out.persistence.MembershipJpaEntity;
 import com.woopay.membership.application.port.in.RegisterMembershipCommand;
 import com.woopay.membership.application.port.in.RegisterMembershipUseCase;
 import com.woopay.membership.application.port.out.RegisterMembershipPort;
-import com.woopay.membership.common.UseCase;
 import com.woopay.membership.domain.Membership;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

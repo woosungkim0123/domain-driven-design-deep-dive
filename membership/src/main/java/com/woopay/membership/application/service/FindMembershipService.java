@@ -1,9 +1,9 @@
 package com.woopay.membership.application.service;
 
+import com.woopay.common.UseCase;
 import com.woopay.membership.application.port.in.FindMembershipCommand;
 import com.woopay.membership.application.port.in.FindMembershipUseCase;
 import com.woopay.membership.application.port.out.FindMembershipPort;
-import com.woopay.membership.common.UseCase;
 import com.woopay.membership.domain.Membership;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
