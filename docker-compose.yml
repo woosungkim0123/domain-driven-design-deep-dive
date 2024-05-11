@@ -1,0 +1,37 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0
+    networks:
+      - woopay_network
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    env_file: .env # .env 파일을 읽어서 환경변수 설정
+    ports:
+      - "3306:3306"
+    environment:
+      - TZ=Asia/Seoul
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_USER=mysqluser
+      - MYSQL_PASSWORD=mysqlpw
+
+  membership:
+    image: msa-deep-dive-membership:1.0.0
+    networks:
+      - woopay_network
+    ports:
+      - "8081:8080"
+    depends_on: # mysql이 실행되어야 membership-service가 실행될 수 있도록 설정
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/woo_pay?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=mysqluser
+      - SPRING_DATASOURCE_PASSWORD=mysqlpw
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5InnoDBDialect
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+networks:
+  woopay_network:
+    driver: bridge
