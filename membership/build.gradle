@@ -1,4 +1,7 @@
 
+group = 'com.woopay.membership'
+version = '1.0.0'
+
 dependencies {
     implementation project(':common')
     implementation 'org.springframework.boot:spring-boot-starter-web'
