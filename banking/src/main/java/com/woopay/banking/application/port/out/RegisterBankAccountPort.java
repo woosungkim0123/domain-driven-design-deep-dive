@@ -4,7 +4,6 @@ import com.woopay.banking.adapter.out.persistence.RegisteredBankAccountJpaEntity
 import com.woopay.banking.domain.RegisteredBankAccount;
 
 public interface RegisterBankAccountPort {
-
     RegisteredBankAccountJpaEntity createRegisteredBankAccount(
             RegisteredBankAccount.MembershipId membershipId,
             RegisteredBankAccount.BankName bankName,
