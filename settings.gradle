@@ -3,4 +3,5 @@ rootProject.name = 'msa-deep-dive'
 include 'common'
 include 'membership'
 include 'banking'
+include 'money'
 
